@@ -22,7 +22,7 @@ In your app use as follows:
         alert("Error calling Pulse plugin");
     }
 
-    pulse.measure("World", success, failure);
+    pulse.measure(success, failure);
 ```
 
 To stop measuring: 
