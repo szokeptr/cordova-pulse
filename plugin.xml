@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+    id="com.szokepeter.pulse"
+    version="0.7.0">
+    
+    <name>CDVPulse</name>
+    
+    <engines>
+        <engine name="cordova" version=">=3.4.0"/>
+    </engines>
+    
+    <asset src="www/pulse.js" target="js/pulse.js"/>
+    
+    <js-module src="www/pulse.js" name="pulse">
+        <clobbers target="pulse" />
+    </js-module>
+    
+    <platform name="ios">
+        
+        <config-file target="config.xml" parent="/widget">
+            <feature name="Pulse">
+                <param name="ios-package" value="CDVPulse" />
+            </feature>
+        </config-file>
+        
+        <header-file src="src/ios/CDVPulse.h" target-dir="PulsePlugin"/>
+        <source-file src="src/ios/CDVPulse.m" target-dir="PulsePlugin"/>
+        <header-file src="src/ios/Filter.h" target-dir="PulsePlugin"/>
+        <source-file src="src/ios/Filter.m" target-dir="PulsePlugin"/>
+        <header-file src="src/ios/PulseDetector.h" target-dir="PulsePlugin"/>
+        <source-file src="src/ios/PulseDetector.mm" target-dir="PulsePlugin"/>
+        
+        <framework src="CoreVideo.framework" />
+        <framework src="QuartzCore.framework" />
+        
+    </platform>
+    
+</plugin>
