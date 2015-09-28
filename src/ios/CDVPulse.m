@@ -33,6 +33,11 @@ typedef NS_ENUM(NSUInteger, CURRENT_STATE) {
     self.pulseDetector=[[PulseDetector alloc] init];
     [self startCameraCapture];
 }
+- (void)stop:(CDVInvokedUrlCommand*)command
+{
+    self.callbackId = [command callbackId];
+    [self stopCameraCapture];
+}
 // start capturing frames
 -(void) startCameraCapture {
     // Create the AVCapture Session
